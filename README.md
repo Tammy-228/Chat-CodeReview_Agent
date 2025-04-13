@@ -1,12 +1,12 @@
-# Chat-CodeReview(Gitlab)
+# Chat-CodeReview(Gitlab) Agent
 
->  ChatGPT automates code review for GitLab's code. 
+> ChatGPT automates code review for GitLab's code.
 
- Translation Versions: [ENGLISH](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.md) | [中文简体](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.zh-CN.md) | [中文繁體](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.zh-TW.md) | [한국어](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.ko.md) | [日本語](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.ja.md) 
+Translation Versions: [ENGLISH](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.md) | [中文简体](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.zh-CN.md) | [中文繁體](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.zh-TW.md) | [한국어](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.ko.md) | [日本語](https://github.com/nangongchengfeng/Chat-CodeReview/blob/main/README.ja.md)
 
 ## Features
 
- **ChatGPT integrates with GitLab to achieve automated code auditing and provide efficient, intelligent code review solutions for software development teams**
+**ChatGPT integrates with GitLab to achieve automated code auditing and provide efficient, intelligent code review solutions for software development teams**
 
 > 1. Automatic Trigger and Timely Response: Utilizing GitLab's Webhook functionality, the system automatically triggers events such as code submissions, merge requests, and tag creations. Upon receiving new code submissions, the system promptly responds by initiating the auditing process without manual intervention.
 > 2. Integration with GitLab API Interface: Through integration with GitLab's API interface, the solution allows for easy extension and expansion of functionalities. This integration enhances flexibility in interacting with GitLab, accommodating a wide range of customized auditing requirements.
@@ -17,20 +17,18 @@
 
 ![1689647943933](images/1689647943933.png)
 
- **steps：** 
+**steps：**
 
 > 1. GitLab's Webhook Event Push: GitLab can be configured with Webhooks to trigger notifications when events such as code submissions or merge requests occur. Upon new code submissions or merge requests, GitLab sends a POST request to a pre-defined URL, containing relevant event data.
 > 2. Parsing Diff Content and Sending to ChatGPT: After receiving the Webhook event, GitLab parses the diff content, representing the differences between the new code and existing code. Subsequently, these differences are sent to ChatGPT's API endpoint, enabling ChatGPT to comprehend the code changes.
 > 3. ChatGPT Processing and Returning Results: ChatGPT, a powerful natural language processing model, is capable of understanding and processing natural language text. When ChatGPT receives the diff content, it analyzes and comprehends the code changes, providing an assessment and feedback on potential issues, vulnerabilities, or optimization suggestions. ChatGPT returns the processed results to the triggering GitLab instance.
 > 4. Displaying ChatGPT's Processed Results as Comments: GitLab receives the processed results from ChatGPT and adds them as comments to the corresponding code submissions or merge requests. Consequently, code contributors and other team members can review ChatGPT's audit results and make appropriate improvements or fixes based on the recommendations.
 
- By integrating GitLab's code auditing with ChatGPT, automatic code quality checks and reviews can be accomplished, thereby assisting teams in identifying potential issues, vulnerabilities, or opportunities for improvement. (The above is for reference only.) 
-
-
+By integrating GitLab's code auditing with ChatGPT, automatic code quality checks and reviews can be accomplished, thereby assisting teams in identifying potential issues, vulnerabilities, or opportunities for improvement. (The above is for reference only.)
 
 ## prompt
 
-###  Experienced leadership 
+### Experienced leadership
 
 ```python
     messages = [
@@ -43,7 +41,7 @@
     ]
 ```
 
-###  Proud and spirited young woman 
+### Proud and spirited young woman
 
 To review, refer to the following role statement:
 
@@ -54,15 +52,11 @@ To review, refer to the following role statement:
 }
 ```
 
- 
-
 ## environment variable
 
-> -  gitlab_server_url :  URL address of the Gitlab server
-> -  gitlab_private_token :  A private access token (private token) for accessing the Gitlab API 
-> -  openai_api_key :  The key used to access OpenAI's API
-
-
+> - gitlab_server_url : URL address of the Gitlab server
+> - gitlab_private_token : A private access token (private token) for accessing the Gitlab API
+> - openai_api_key : The key used to access OpenAI's API
 
 ## Gitlab WebHook
 
@@ -70,7 +64,7 @@ GitLab's Webhook is an event notification mechanism that allows you to configure
 
 Webhooks can be utilized to monitor and respond to various events within GitLab, such as code commits, merge requests, tag creation, branch operations, and more. By leveraging Webhooks, you can implement a wide range of automation tasks, integrations, and Continuous Integration/Continuous Deployment (CI/CD) workflows.
 
- The following are the key features and uses of GitLab's Webhook: 
+The following are the key features and uses of GitLab's Webhook:
 
 > 1. Event Trigger: When you configure and enable a Webhook in GitLab, it automatically triggers when specific events occur, such as code commits or merge requests.
 > 2. HTTP Requests: Once an event is triggered, GitLab sends an HTTP request to the URL you have configured in advance. This request contains the relevant event data, typically in JSON format. The most common method used is the POST request.
@@ -78,13 +72,11 @@ Webhooks can be utilized to monitor and respond to various events within GitLab,
 > 4. Integration with other services: Webhooks enable GitLab to integrate with other services and tools. For instance, you can automatically sync code with a Continuous Integration (CI) platform, send notifications to team members, or update a task tracking system.
 > 5. Configurability: GitLab's Webhook provides extensive configuration options. You can choose the types of events to monitor, set trigger conditions, and define the content and format of the request.
 
-
-
 ![1689651530556](images/1689651530556.png)
 
 ![1689651554862](images/1689651554862.png)
 
-------
+---
 
 ### Test data (push)
 
@@ -96,7 +88,7 @@ Webhooks can be utilized to monitor and respond to various events within GitLab,
 
 **Request time:** 刚刚
 
-------
+---
 
 ##### Request headers:
 
@@ -168,8 +160,6 @@ Server: Werkzeug/2.3.6 Python/3.8.0Date: Tue, 18 Jul 2023 03:39:51 GMTContent-Ty
 }
 ```
 
-
-
 ## install and run
 
 ### 1、download code
@@ -204,26 +194,22 @@ openai_api_key = openai_api_key
 
 ```
 
-### 4、run app.py 
+### 4、run app.py
 
 ```python
 简单
-nohup python3 app.py & 
+nohup python3 app.py &
 ```
 
-### 5、Gitlab  Webhook
+### 5、Gitlab Webhook
 
 ```python
-http://192.168.96.19:5000/git/webhook 
+http://192.168.96.19:5000/git/webhook
 The IP address of the running machine can be changed, and the domain name can also be changed.
-http://gitlab.ownit.top/git/webhook 
+http://gitlab.ownit.top/git/webhook
 ```
 
-
-
 ![1689651530556](images/1689651530556.png)
-
-
 
 ## question
 
@@ -235,11 +221,9 @@ http://gitlab.ownit.top/git/webhook
 
 1、Pass all the contents of the acquired diff to chatgpt for processing (including adding lines and deleting lines)
 
- **Advantages**: Convenient and fast. 
+**Advantages**: Convenient and fast.
 
- **Disadvantages**: If the content is too long, it may cause issues with ChatGPT's processing, resulting in partial code and potentially incoherent logic 
-
-
+**Disadvantages**: If the content is too long, it may cause issues with ChatGPT's processing, resulting in partial code and potentially incoherent logic
 
 #### Method 2 (recommended)
 
@@ -258,43 +242,38 @@ def filter_diff_content(diff_content):
 
 ![1689661743140](images/1689661743140.png)
 
-
-
 #### Method 3 (Complicated) Not joint debugging, the code has been overwritten
 
-3、 Process the content of the diff, remove deleted lines and the '+' symbol, retrieve the modified original file, and use JavaParser for parsing. Obtain the corresponding code blocks and upload them for review. 
+3、 Process the content of the diff, remove deleted lines and the '+' symbol, retrieve the modified original file, and use JavaParser for parsing. Obtain the corresponding code blocks and upload them for review.
 
- **Advantages**: Saves space, provides completed methods, and slightly improves the logic. 
+**Advantages**: Saves space, provides completed methods, and slightly improves the logic.
 
- **Disadvantages**: Very cumbersome and tedious, only supports Java. 
+**Disadvantages**: Very cumbersome and tedious, only supports Java.
 
 ```json
-[{
-	'code': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-	'name': 'SettlementDetailController'
-}, {
-	'code': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-	'name': 'queryRecord'
-}, {
-	'code': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-	'name': 'populateBatchItemVO'
-}]
+[
+  {
+    "code": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "name": "SettlementDetailController"
+  },
+  {
+    "code": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "name": "queryRecord"
+  },
+  {
+    "code": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "name": "populateBatchItemVO"
+  }
+]
 ```
-
-
 
 ## Demo
 
 ![1689663598079](images/1689663598079.png)
 
-
-
 ## contribute
 
-Thanks to [ anc95  小安大佬](https://github.com/anc95) for the support and inspiration of the project
+Thanks to [ anc95 小安大佬](https://github.com/anc95) for the support and inspiration of the project
 https://github.com/anc95/ChatGPT-CodeReview.git
 
- ![Avatar](images/13167934.jpg) 
-
-
-
+![Avatar](images/13167934.jpg)
